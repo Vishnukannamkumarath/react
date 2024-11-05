@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const express=require('express');
+const app=express();
+let user=[{"name":"john",'email':"hello@gmai.com",'userName':"johny"},{"name":"vishnu",'emil':"vishnu.cse21@gmail.com",'userName':"hello"},{'name':'sooraj','email':'sooraj@gmail.com','username':'sooraj'}]
+let p=[{"Product_name":"car","description":"A car is a vehicle used for travelling.","Pname":"BMW"}]
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+app.get('/users',function(req,res){
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    res.json(user)
+
+})
+app.get('/car',function(req,res){
+    res.json(p)
+})
+
+app.listen(5000,function(){
+    console.log("listening on port 5000");
+})
